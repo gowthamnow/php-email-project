@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Log in to your account</h1>
+
+        <!-- Google Login Button -->
+        <button id="google-login-btn" class="google-login">
+            <img src="google-icon.png" alt="Google Logo"> Login with Google
+        </button>
+
+        <!-- OR Divider -->
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+        <!-- Email and Password Login -->
+        <div id="email-login-form">
+            <label for="email">E-Mail:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+
+            <div class="remember-me">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember Me</label>
+            </div>
+
+            <button id="login-btn" class="primary-btn">Log in</button>
+        </div>
+
+        <!-- Forgot Password & Register Links -->
+        <a href="#" class="forgot-password">Forgot Your Password?</a>
+        <a href="#" id="register-btn">Don't have an account? <strong>Register</strong></a>
+    </div>
+    
+    <!-- Firebase Authentication -->
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js"></script>
+    <script type="module" src="login.js"></script>
+</body>
+</html>

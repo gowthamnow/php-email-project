@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+    <title>Gowtham T - Portfolio</title>
+  </head>
+  <body>
+
+    <!-- Navbar menu  -->
+
+    <div class="container">
+      <nav id="header">
+        <div class="nav-logo">
+          <p class="nav-name">Balaji</p>
+        </div>
+        <div class="nav-menu" id="myNavMenu">
+          <ul class="nav_menu_list">
+            <li class="nav_list">
+              <a href="#home" class="nav_link active-link">Home</a>
+              <div class="circle"></div>
+            </li>
+            <li class="nav_list">
+              <a href="#about" class="nav_link">About</a>
+              <div class="circle"></div>
+            </li>
+            <li class="nav_list">
+              <a href="#projects" class="nav_link">Projects</a>
+              <div class="circle"></div>
+            </li>
+            <li class="nav_list">
+              <a href="#contact" class="nav_link">Contact</a>
+              <div class="circle"></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Dark mode -->
+
+        <div class="toggle-button">
+          <div class="toggle-knob">
+            <i class="fa-solid fa-moon" id="moon"></i>
+            <i class="fa-solid fa-sun" id="sun"></i>
+          </div>
+        </div>              
+
+        <div class="nav-menu-btn">
+          <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+        </div>
+      </nav>
+
+      <!-- Main -->
+
+      <main class="wrapper">
+        <section class="featured-box" id="home">
+          <div class="featured-text">
+            <div class="hello">
+              <p>Hello I'm</p>
+            </div>
+            <div class="featured-name">
+              <span class="typedText"></span>
+            </div>
+            <div class="text-info">
+              <p>
+                I'm a web development enthusiast with a passion for creating innovative technological solutions.
+              </p>
+            </div>
+            <div class="text-btn">
+              <button class="btn">Hire Me</button>
+              <button class="btn">
+                Download CV<i class="uil uil-file"></i>
+              </button>
+            </div>
+            <div class="social_icons">
+              <div class="icon_circle"></div>
+              <div class="icon">
+                <a href="https://www.linkedin.com/in/gowtham-t-73a2b7299" target="_blank">
+                  <i class="fa-brands fa-linkedin-in icon"></i>
+                </a>
+              </div>
+              <div class="icon">
+                <a href="https://github.com/gowthamnow" target="_blank">
+                  <i class="util uil-github-alt"></i>
+                </a>
+              </div> 
+            </div>
+          </div>
+          <div class="featured-image">
+            <div class="image">
+              <img src="" alt="Balaji Ragul P" />
+            </div>
+          </div>
+        </section>
+
+        <!-- About Me -->
+
+        <section class="section" id="about">
+          <div class="top-header">
+            <h1>About Me</h1>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="about-info">
+                <figure class="about-me">
+                  <figcaption>
+                    <img src="" alt="" class="profile" />
+                    <h2>Web Development | Embedded Technology</h2>
+                    <p>
+                      A passionate student at Bannari Amman Institute of Technology, specializing in web development and embedded technologies. Committed to innovative solutions and continuous learning.
+                    </p>
+                  </figcaption>
+                </figure>
+                <button class="about-me-btn">Hire Me</button>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="skill-box">
+                <span class="title">HTML/CSS</span>
+                <div class="skill-bar html">
+                  <span class="skill-per">
+                    <span class="tooltip">90%</span>
+                  </span>
+                </div>
+              </div>
+              <div class="skill-box">
+                <span class="title">JavaScript</span>
+                <div class="skill-bar javascript">
+                  <span class="skill-per">
+                    <span class="tooltip">75%</span>
+                  </span>
+                </div>
+              </div>
+              <div class="skill-box">
+                <span class="title">Angular JS</span>
+                <div class="skill-bar angular">
+                  <span class="skill-per">
+                    <span class="tooltip">70%</span>
+                  </span>
+                </div>
+              </div>
+              <div class="skill-box">
+                <span class="title">C Programming</span>
+                <div class="skill-bar c-programming">
+                  <span class="skill-per">
+                    <span class="tooltip">80%</span>
+                  </span>
+                </div>
+              </div>
+              <div class="skill-box">
+                <span class="title">PCB design</span>
+                <div class="skill-bar pcb">
+                  <span class="skill-per">
+                    <span class="tooltip">90%</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- project box -->
+
+        <section class="section" id="projects">
+          <div class="top-header">
+            <h1>Projects</h1>
+          </div>
+          <div class="project-container">
+            <div class="project-box">
+              <i class="uil uil-robot"></i>
+              <a href="micro.html">Micromouse Maze Solver</a>
+            </div>
+            <div class="project-box">
+              <i class="uil uil-line-alt"></i>
+              <h3>Line Follower Robot</h3>
+              <label>Sensor-based autonomous tracking</label>
+            </div>
+            <div class="project-box">
+              <i class="uil uil-desktop"></i>
+              <h3>8-Bit Computer</h3>
+              <label>Custom PCB and computing design</label>
+            </div>
+          </div>
+        </section>
+
+        <!-- contact form -->
+
+        <section class="section" id="contact">
+          <div class="top-header">
+            <h1>Let's work together</h1>
+            <span>Interested in collaboration or have a project in mind?</span>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="contact-info">
+                <h2>Find me <i class="uil uil-corner-right-down"></i></h2>
+                <p><i class="uil uil-envelope">Email: balajiragul.ec22@bitsathy.ac.in</i></p>
+                <p><i class="uil uil-phone">Phone: +91 8148876628</i></p>
+              </div>
+            </div>
+            
+            <form id="contact-form" method="post">
+              <input type="text" name="name" placeholder="Your Name" required />
+              <input type="email" name="email" placeholder="Your Email" required />
+              <textarea name="message" placeholder="Your Message" required></textarea>
+              <button type="submit">Send</button>
+          </form>
+          
+          <div id="response-message"></div>                 
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <div class="middle-footer">
+          <ul class="footer-menu">
+            <li class="footer_menu_list"><a href="#home">Home</a></li>
+            <li class="footer_menu_list"><a href="#about">About</a></li>
+            <li class="footer_menu_list"><a href="#projects">Projects</a></li>
+            <li class="footer_menu_list"><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-social-icons">
+          <div class="icon"><a href="linkedin.com/in/balajiragul" target="_blank"><i class="fa-brands fa-linkedin-in icon"></i></a></div>
+          <div class="icon"><a href="github.com/balajiragul" target="_blank"><i class="util uil-github-alt"></i></a></div>
+        </div>
+
+        <div class="bottom-footer">
+          <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Balaji Ragul P</a> - All rights reserved 2024</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
