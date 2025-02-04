@@ -1,3 +1,179 @@
+
+/* style.css */
+:root {
+    --neon-cyan: #0ff;
+    --neon-pink: #f0f;
+    --neon-green: #0f0;
+    --dark-bg: #0a0a0f;
+    --cyber-border: 2px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--dark-bg);
+    font-family: 'Rajdhani', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Animated grid background */
+body::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: 
+        linear-gradient(90deg, rgba(15, 15, 15, 0.1) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(15, 15, 15, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: gridScroll 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes gridScroll {
+    from { transform: translate(-50%, -50%) rotate(45deg); }
+    to { transform: translate(0%, 0%) rotate(45deg); }
+}
+
+.container {
+    position: relative;
+    background: rgba(10, 10, 15, 0.95);
+    padding: 2.5rem 3rem;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+    border: var(--cyber-border) solid var(--neon-cyan);
+    transform: skewX(-2deg);
+    animation: containerEntrance 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes containerEntrance {
+    0% {
+        transform: skewX(-10deg) translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: skewX(-2deg) translateY(0);
+        opacity: 1;
+    }
+}
+
+h1 {
+    color: var(--neon-cyan);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5em;
+    text-shadow: 0 0 10px var(--neon-cyan);
+    position: relative;
+    letter-spacing: 2px;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+}
+
+#google-login-btn {
+    background: transparent;
+    border: var(--cyber-border) solid var(--neon-pink);
+    color: var(--neon-pink);
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 100%;
+    backdrop-filter: blur(5px);
+}
+
+#google-login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 0, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+#google-login-btn:hover {
+    box-shadow: 0 0 20px var(--neon-pink),
+                inset 0 0 10px var(--neon-pink);
+    transform: scale(1.05);
+}
+
+#google-login-btn:hover::before {
+    left: 100%;
+}
+
+/* Scanning line animation */
+@keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(0, 255, 255, 0.1) 50%,
+        transparent
+    );
+    animation: scan 4s infinite linear;
+    pointer-events: none;
+}
+
+/* Glitch effect on hover */
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+.container:hover {
+    animation: glitch 0.5s infinite;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+        margin: 0 15px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+}
+
+
 /* Global Reset */
 * {
     margin: 0;
@@ -280,3 +456,4 @@ input[type="file"] {
         transform: translateY(0);
     }
 }
+

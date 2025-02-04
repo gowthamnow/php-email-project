@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="profile-container">
+        <h2>Edit Profile</h2>
+        
+        <label for="profile-pic-upload">
+            <img id="profile-pic" src="default-profile.png" alt="Profile Picture" class="profile-image">
+        </label>
+        <input type="file" id="profile-pic-upload" accept="image/*">
+
+        <p><strong>Name:</strong> <input type="text" id="user-name"></p>
+        <p><strong>Email:</strong> <input type="email" id="user-email" readonly></p>
+        <p><strong>Birthday:</strong> <input type="date" id="user-birthday"></p>
+        
+        <button id="save-profile">Save Profile</button>
+        <button id="go-back">Cancel</button>
+    </div>
+
+    <script type="module" src="edit.js"></script>
+</body>
+</html>
