@@ -91,22 +91,23 @@ function myMenuFunction() {
       }
     });
   }
-  window.addEventListener("scroll", scrollActive);
-
-  document.getElementById("contact-form").addEventListener("submit", async function(event) {
-    event.preventDefault(); // Prevents page reload
+  document.getElementById("contact-form").addEventListener("submit", function (event) {
+    event.preventDefault();
 
     let formData = new FormData(this);
+    let responseMessage = document.getElementById("response-message");
 
-    try {
-        let response = await fetch("send_email.php", { method: "POST", body: formData }); // Call PHP file
-
-        let result = await response.text();
-        console.log("Server Response:", result);
-        document.getElementById("response-message").innerHTML = result;
-    } catch (error) {
-        console.error("Error:", error);
-    }
+    fetch("send_email.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        responseMessage.innerHTML = `<p style="color: green;">${data}</p>`;
+    })
+    .catch(error => {
+        responseMessage.innerHTML = `<p style="color: red;">Error sending message.</p>`;
+    });
 });
 
   

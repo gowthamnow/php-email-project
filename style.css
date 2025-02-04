@@ -151,3 +151,132 @@ a:hover {
         font-size: 20px;
     }
 }
+/* === GENERAL STYLES === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* === BACKGROUND === */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #8749f2, #6a31c8);
+    color: white;
+    overflow: hidden;
+}
+
+/* === PROFILE CONTAINER (Glassmorphism) === */
+.profile-container {
+    width: 90%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.15);  /* Glass Effect */
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* === PROFILE IMAGE === */
+.profile-pic-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid white;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-image:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Hide default file input */
+input[type="file"] {
+    display: none;
+}
+
+/* === PROFILE INFO === */
+.profile-info {
+    margin-top: 20px;
+}
+
+.profile-info p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* === INPUT FIELDS === */
+.profile-info input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    outline: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.profile-info input:focus {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* === BUTTON STYLES === */
+.btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Save Button */
+#save-profile {
+    background: white;
+    color: #8749f2;
+}
+
+#save-profile:hover {
+    background: #f0f0f0;
+}
+
+/* Logout Button */
+.logout-btn {
+    background: red;
+    color: white;
+}
+
+.logout-btn:hover {
+    background: darkred;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

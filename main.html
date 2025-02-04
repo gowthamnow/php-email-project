@@ -13,6 +13,7 @@
     <title>Gowtham T - Portfolio</title>
   </head>
   <body>
+    
 
     <!-- Navbar menu  -->
 
@@ -38,6 +39,9 @@
             <li class="nav_list">
               <a href="#contact" class="nav_link">Contact</a>
               <div class="circle"></div>
+              <li class="nav_list">
+                <a href="profile.html" class="nav_link">Projects</a>
+                <div class="circle"></div>
             </li>
           </ul>
         </div>
@@ -55,6 +59,15 @@
           <i class="uil uil-bars" onclick="myMenuFunction()"></i>
         </div>
       </nav>
+
+      <div class="container">
+        <h1>Welcome to Main Page</h1>
+        <button id="profile-btn">Go to Profile</button>
+        <button id="logout-btn">Logout</button>
+    </div>
+
+    <a href="profile.html">Profile</a>
+    <script type="module" src="profile.js"></script>
 
       <!-- Main -->
 
@@ -205,13 +218,13 @@
               </div>
             </div>
             
-            <form id="contact-form" method="post">
+            <form id="contact-form" action="send_email.php" method="post">
               <input type="text" name="name" placeholder="Your Name" required />
               <input type="email" name="email" placeholder="Your Email" required />
+              <input type="text" name="subject" placeholder="Subject" required />
               <textarea name="message" placeholder="Your Message" required></textarea>
               <button type="submit">Send</button>
-          </form>
-          
+            </form>
           <div id="response-message"></div>                 
             </div>
           </div>

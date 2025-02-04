@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Profile Section -->
+    <div id="profile-section" class="profile-container">
+        <h2>My Profile</h2>
+        
+        <!-- Profile Picture -->
+        <div class="profile-pic-container">
+            <label for="profile-pic-upload">
+                <img id="profile-pic" src="default-profile.png" alt="Profile Picture" class="profile-image">
+            </label>
+            <input type="file" id="profile-pic-upload" accept="image/*">
+        </div>
+
+        <!-- User Info -->
+        <div class="profile-info">
+            <p><strong>Name:</strong> <input type="text" id="user-name"></p>
+            <p><strong>Email:</strong> <input type="email" id="user-email" readonly></p>
+            <p><strong>Birthday:</strong> <input type="date" id="user-birthday"></p>
+        </div>
+
+        <!-- Buttons -->
+        <button id="save-profile" class="btn">Save Profile</button>
+        <button id="go-back-btn" class="btn go-back-btn">⬅ Go Back</button>
+        <button id="logout-btn" class="btn logout-btn">Logout</button>
+    </div>
+
+    <script type="module" src="profile.js"></script>
+</body>
+</html>
