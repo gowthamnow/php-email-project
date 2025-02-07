@@ -19,31 +19,81 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const db = getFirestore(app);
 
+// ✅ DOM Elements
+const googleLoginBtn = document.getElementById("google-login-btn");
+
+// ✅ Helper Functions
+const showLoading = () => {
+    googleLoginBtn.innerHTML = `<span class="spinner"></span> Signing in...`;
+    googleLoginBtn.disabled = true;
+};
+
+const hideLoading = () => {
+    googleLoginBtn.innerHTML = `Sign in with Google`;
+    googleLoginBtn.disabled = false;
+};
+
+const showToast = (message, type = "success") => {
+    const toast = document.createElement("div");
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+};
+
+const saveUserToFirestore = async (user) => {
+    const userRef = doc(db, "users", user.uid);
+    const userSnap = await getDoc(userRef);
+
+    if (!userSnap.exists()) {
+        await setDoc(userRef, {
+            name: user.displayName,
+            email: user.email,
+            profilePic: user.photoURL,
+            createdAt: new Date().toISOString(),
+            lastLogin: new Date().toISOString(),
+        });
+    } else {
+        // Update last login time for existing users
+        await setDoc(userRef, { lastLogin: new Date().toISOString() }, { merge: true });
+    }
+};
+
 // ✅ Google Login Function
-document.getElementById("google-login-btn").addEventListener("click", async () => {
+googleLoginBtn.addEventListener("click", async () => {
     try {
+        showLoading();
+
         const result = await signInWithPopup(auth, provider);
         const user = result.user;
 
         console.log("User Signed In:", user);
 
-        // ✅ Check if user exists in Firestore
-        const userRef = doc(db, "users", user.uid);
-        const userSnap = await getDoc(userRef);
+        // ✅ Save or update user in Firestore
+        await saveUserToFirestore(user);
 
-        if (!userSnap.exists()) {
-            // ✅ New user → Save basic info
-            await setDoc(userRef, {
-                name: user.displayName,
-                email: user.email,
-                profilePic: user.photoURL
-            });
-        }
+        // ✅ Show success message
+        showToast("Signed in successfully! Redirecting...");
 
-        // ✅ Redirect to main.html
-        window.location.href = "main.html";
+        // ✅ Redirect to main.html after a short delay
+        setTimeout(() => {
+            window.location.href = "main.html";
+        }, 200);
     } catch (error) {
         console.error("Google Sign-In Error:", error.message);
-        alert("Google sign-in failed. Please try again.");
+
+        // ✅ Handle specific errors
+        if (error.code === "auth/popup-closed-by-user") {
+            showToast("Sign-in popup was closed. Please try again.", "error");
+        } else if (error.code === "auth/network-request-failed") {
+            showToast("Network error. Please check your internet connection.", "error");
+        } else {
+            showToast("Sign-in failed. Please try again.", "error");
+        }
+    } finally {
+        hideLoading();
     }
 });

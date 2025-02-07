@@ -4,18 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="profile.css">
 </head>
 <body>
-
+    <div class="blur-background"></div>
+    
     <div class="profile-container">
-        <img id="profile-pic" src="default-profile.png" alt="Profile Picture" class="profile-image">
-        <h2 id="user-name">Loading...</h2>
-        <p>Email: <span id="user-email"></span></p>
-        <p>Birthday: <span id="user-birthday"></span></p>
+        <div class="profile-header">
+            <img id="profile-pic" src="default-profile.png" alt="Profile Picture" class="profile-image">
+            <div class="profile-info">
+                <h2 id="user-name">Loading...</h2>
+                <p class="verification-status" id="verification-status"></p>
+            </div>
+        </div>
 
-        <button id="edit-profile">Edit Profile</button>
-        <button id="logout-btn">Logout</button>
+        <div class="profile-details">
+            <div class="detail-item">
+                <i class="fas fa-envelope"></i>
+                <span id="user-email"></span>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-birthday-cake"></i>
+                <span id="user-birthday"></span>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn-gradient" id="verify-email">
+                <i class="fas fa-shield-alt"></i> Verify Email
+            </button>
+            <button class="btn-edit" id="edit-profile">
+                <i class="fas fa-edit"></i> Edit Profile
+            </button>
+            <button class="btn-logout" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- OTP Verification Modal -->
+    <div class="otp-modal" id="otpModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Email Verification</h3>
+            <p>We've sent a 6-digit OTP to your email</p>
+            <div class="otp-inputs">
+                <input type="text" maxlength="1" class="otp-digit">
+                <input type="text" maxlength="1" class="otp-digit">
+                <input type="text" maxlength="1" class="otp-digit">
+                <input type="text" maxlength="1" class="otp-digit">
+                <input type="text" maxlength="1" class="otp-digit">
+                <input type="text" maxlength="1" class="otp-digit">
+            </div>
+            <button class="btn-verify" id="submitOtp">Verify</button>
+            <p class="resend-otp">Didn't receive code? <a href="#" id="resendOtp">Resend</a></p>
+        </div>
     </div>
 
     <script type="module" src="profile.js"></script>
